@@ -1,3 +1,0 @@
-// here we confidure prettier
-{
-}

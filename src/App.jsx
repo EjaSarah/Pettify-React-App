@@ -27,23 +27,30 @@ const App = () => {
   const adoptedPet = useState(null);
   return (
     // a component must return something. This is the hello world of react application
-    <StrictMode>
-      <BrowserRouter>
-        {/* all query client does is providing contex to components underneath them */}
-        <QueryClientProvider client={queryClient}>
-          {/* adoptedpet now makes adopted pet available to all consumers of adoptedpetcontext  inside of it*/}
-          <AdoptedPetContext.Provider value={adoptedPet}>
-            <header>
-              <Link to="/">Adopt Me!</Link>
-            </header>
-            <Routes>
-              <Route path="/details/:id" element={<Details />} />
-              <Route path="/" element={<SearchParams />} />
-            </Routes>
-          </AdoptedPetContext.Provider>
-        </QueryClientProvider>
-      </BrowserRouter>
-    </StrictMode>
+    <div
+      className="m-0 p-0"
+      style={{
+        background: "url(https://pets-images.dev-apis.com/pets/wallpaperB.jpg)",
+      }}
+    >
+      <StrictMode>
+        <BrowserRouter>
+          {/* all query client does is providing contex to components underneath them */}
+          <QueryClientProvider client={queryClient}>
+            {/* adoptedpet now makes adopted pet available to all consumers of adoptedpetcontext  inside of it*/}
+            <AdoptedPetContext.Provider value={adoptedPet}>
+              <header>
+                <Link to="/">Adopt Me!</Link>
+              </header>
+              <Routes>
+                <Route path="/details/:id" element={<Details />} />
+                <Route path="/" element={<SearchParams />} />
+              </Routes>
+            </AdoptedPetContext.Provider>
+          </QueryClientProvider>
+        </BrowserRouter>
+      </StrictMode>
+    </div>
   );
 };
 
